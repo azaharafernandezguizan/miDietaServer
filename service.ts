@@ -43,22 +43,23 @@ const formMealsMenu = (receivedOptions? : IReceivedConditions) =>{
 
 const getMealsForDay = (currentDay: string, numberOfDayOnWeek: number,receivedOptions? : IReceivedConditions) =>{
     initializeMeals();
-
     let selectedMeals: IMeal[] = [];
     let principalMealOptions : ISuggestedFood = allFoodData.filter( x=> x.mealOptionName.toLowerCase() === currentDay.toLowerCase())[0];
-    let numberRandom : number = Math.floor(Math.random() * 4);
 
+    let numberRandom : number = Math.floor(Math.random() * 4);
+  
     let breakfast: string = "";
     if(numberOfDayOnWeek < 5){
         breakfast = "Carne de ternera o pollo a la plancha con pan tostado e infusión";
     }
     else {
         breakfast = weekendBreakfast.options[numberRandom];
-    }
+    };
     selectedMeals.push({
         name: 'Desayuno',
         menu: breakfast
     });
+
 
     let lunch : string= principalMealOptions.options[numberRandom];
     lunch += getDessert(numberOfDayOnWeek, numberRandom, receivedOptions);
@@ -67,6 +68,7 @@ const getMealsForDay = (currentDay: string, numberOfDayOnWeek: number,receivedOp
         menu: lunch
     });
 
+    
     if(receivedOptions!= null && receivedOptions.numberOfMeals > 2){
         let dinner: string = dinnerOptions.options[numberOfDayOnWeek];
         selectedMeals.push({
@@ -105,7 +107,6 @@ const getDessert = (numberDayOfWeek: number, randomNumber: number, receivedOptio
         } else {
             selectedDessert= " y "+ sundayDessert.options[randomNumber];
         }
-
         return selectedDessert;
 }
 

@@ -38,7 +38,7 @@ export const mealOptions : ISuggestedFood[] = [
         'options': ['Pizza casera ', 'Pescanova', 'Hamburguesa', 'Sandwich' ]
     },
     {
-        'mealOptionName' : 'Sábado',
+        'mealOptionName' : 'Sabado',
         'options': ['Paella de carne', 'Arroz con almejas', 'Arroz con pescado y salsa de tomate', 'Arroz a la cubana' ]
     },
     {
